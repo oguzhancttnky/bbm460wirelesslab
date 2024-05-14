@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [data, setData] = useState({ temperature: 0, humidity: 0 });
+  const [data, setData] = useState({ status: '', temperature: 0, humidity: 0 });
 
   useEffect(() => {
     const fetchData = async () => {
