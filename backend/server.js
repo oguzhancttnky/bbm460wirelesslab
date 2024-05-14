@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 const mqttClient = mqtt.connect('mqtt://test.mosquitto.org');
 
 let sensorData = {
+  status: '',
   temperature: 0,
   humidity: 0
 };
@@ -25,6 +26,7 @@ mqttClient.on('message', (topic, message) => {
     try {
       if (messageString !== 'Connected'){
         const data = JSON.parse(message.toString());
+        sensorData.status = data.status;
         sensorData.temperature = data.temp;
         sensorData.humidity = data.humid;
         console.log('Updated sensor data:', sensorData);
