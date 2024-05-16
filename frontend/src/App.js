@@ -15,7 +15,7 @@ function App() {
     };
 
     fetchData();
-    const intervalId = setInterval(fetchData, 2000); // Refresh data every 10 seconds
+    const intervalId = setInterval(fetchData, 10000); // Refresh data every 10 seconds
 
     return () => clearInterval(intervalId);
   }, []);
