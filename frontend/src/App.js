@@ -15,7 +15,7 @@ function App() {
     };
 
     fetchData();
-    const intervalId = setInterval(fetchData, 10000); // Refresh data every 30 seconds
+    const intervalId = setInterval(fetchData, 10000); // Refresh data every 10 seconds
 
     return () => clearInterval(intervalId);
   }, []);
@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Temperature & Humidity Dashboard</h1>
-        <h3>Current Status: {data.status}</h3>
+        <h3>Fire Rate Status: {data.status}</h3>
         <p>Temperature: {data.temperature.toFixed(2)} °C</p>
         <p>Humidity: {data.humidity.toFixed(2)}%</p>
       </header>
