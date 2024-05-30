@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Oguzhan Cetinkaya",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 78, "left": -76, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -143.7,
+      "left": -178.2,
+      "attrs": { "humidity": "38.5", "temperature": "34.1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": -130.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 40.8,
+      "left": -238.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -41.6,
+      "left": 197.6,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-101.33", "v296.87" ] ],
+    [ "lcd1:VCC", "esp:3V3", "yellow", [ "h-84.67", "v296.87" ] ],
+    [ "lcd1:SDA", "esp:D21", "green", [ "h-58", "v191.77" ] ],
+    [ "lcd1:SCL", "esp:D22", "green", [ "h-36.67", "v145.24", "h-80.53" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:D5", "led1:A", "green", [ "h0" ] ],
+    [ "esp:GND.2", "led1:C", "green", [ "h0" ] ],
+    [ "esp:D18", "bz1:2", "green", [ "h0" ] ],
+    [ "esp:GND.2", "bz1:1", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
